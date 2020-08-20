@@ -1,0 +1,27 @@
+{
+  "name": "electron-react",
+  "version": "0.1.0",
+  "description": "Perrsonal boilerplate for reract js and electron ",
+  "main": "index.ts",
+  "author": "Juan Carlos",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn build && electron dist/electron.js",
+    "build": "webpack --config ./webpack.config.js"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "electron": "^9.2.1",
+    "html-webpack-plugin": "^4.3.0",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
