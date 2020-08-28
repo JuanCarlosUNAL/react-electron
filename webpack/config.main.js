@@ -1,19 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { spawn } = require('child_process')
 
 module.exports = [
   {
     mode: 'development',
-    entry: {
-      electron: './src/index.ts',
-      react: './src/react.tsx'
-    },
+    entry: './src/index.main.ts',
     target: 'electron-main',
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: './src/index.html',
-        chunks: ['react']
-      })
-    ],
     module: {
       rules: [{
         test: /\.tsx?$/,
@@ -22,8 +14,7 @@ module.exports = [
       }]
     },
     output: {
-      // path: __dirname + '/dist',
-      filename: '[name].js'
+      filename: 'index.main.js'
     }
   }
 ];

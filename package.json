@@ -1,14 +1,14 @@
 {
   "name": "electron-react",
   "version": "0.1.0",
-  "description": "Perrsonal boilerplate for reract js and electron ",
-  "main": "index.ts",
+  "description": "Personal boilerplate for React and electron ",
   "author": "Juan Carlos",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "yarn build && electron dist/electron.js",
-    "build": "webpack --config ./webpack.config.js"
+    "build-dev:main": "yarn webpack --config ./webpack/config.main.js",
+    "build-dev:renderer": "yarn webpack-dev-server --config ./webpack/config.renderer.js",
+    "start": "yarn build-dev:main && yarn build-dev:renderer"
   },
   "devDependencies": {
     "@types/react": "^16.9.46",
@@ -18,9 +18,11 @@
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "electron-util": "^0.14.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }

@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import { is } from 'electron-util';
 
 function createWindow () {
   let win = new BrowserWindow({
@@ -9,7 +10,9 @@ function createWindow () {
     }
   });
 
-  win.loadFile('index.html');
+  console.log(is.development ? 'Development' : 'Production')
+  if (is.development) win.loadURL('http://localhost:8080/')
+  else win.loadFile('index.html');
 }
 
 app.on('ready', createWindow);
