@@ -6,25 +6,13 @@ import {
   Link
 } from "react-router-dom";
 import FakeContainer from './Routes/FakeContainer';
+import LoginLogupScreen from './containers/LoginLogupScreen';
 
 const Renderer: React.FC = () => (
   <Router>
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/users">Users</Link>
-        </li>
-      </ul>
-    </nav>
     <Switch>
-      <Route path="/about">
-        <FakeContainer title="About" />
+      <Route path="/">
+        <LoginLogupScreen />
       </Route>
       <Route path="/users">
         <FakeContainer title="Users" />
