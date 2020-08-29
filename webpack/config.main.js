@@ -3,7 +3,7 @@ const { spawn } = require('child_process')
 
 module.exports = [
   {
-    mode: 'development',
+    // mode: 'development',
     entry: './src/index.main.ts',
     target: 'electron-main',
     module: {

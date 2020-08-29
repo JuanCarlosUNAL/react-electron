@@ -1,0 +1,5 @@
+productName: "React Electron"
+appId: "electron.boilerplate.React"
+
+directories:
+  output: "release"

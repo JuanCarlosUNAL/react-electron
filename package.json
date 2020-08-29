@@ -5,15 +5,20 @@
   "author": "Juan Carlos",
   "license": "MIT",
   "private": true,
+  "main": "dist/index.main.js",
   "scripts": {
-    "build-dev:main": "yarn webpack --config ./webpack/config.main.js",
-    "build-dev:renderer": "yarn webpack-dev-server --config ./webpack/config.renderer.js",
-    "start": "yarn build-dev:main && yarn build-dev:renderer"
+    "build-dev:main": "yarn webpack --config ./webpack/config.main.js --mode=development",
+    "build-dev:renderer": "yarn webpack-dev-server --config ./webpack/config.renderer.js --mode=development",
+    "start": "yarn build-dev:main && yarn build-dev:renderer",
+    "build-dist:renderer": "yarn webpack --config ./webpack/config.renderer.js --mode=production",
+    "build-dist:main": "yarn webpack --config ./webpack/config.main.js --mode=production",
+    "dist": "yarn build-dist:main && yarn build-dist:renderer"
   },
   "devDependencies": {
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
     "electron": "^9.2.1",
+    "electron-builder": "^22.8.0",
     "html-webpack-plugin": "^4.3.0",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",

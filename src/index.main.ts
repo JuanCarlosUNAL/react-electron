@@ -12,7 +12,7 @@ function createWindow () {
 
   console.log(is.development ? 'Development' : 'Production')
   if (is.development) win.loadURL('http://localhost:8080/')
-  else win.loadFile('index.html');
+  else win.loadFile('./dist/index.html');
 }
 
 app.on('ready', createWindow);
