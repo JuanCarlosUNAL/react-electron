@@ -10,9 +10,10 @@
     "build-dev:main": "yarn webpack --config ./webpack/config.main.js --mode=development",
     "build-dev:renderer": "yarn webpack-dev-server --config ./webpack/config.renderer.js --mode=development",
     "start": "yarn build-dev:main && yarn build-dev:renderer",
-    "build-dist:renderer": "yarn webpack --config ./webpack/config.renderer.js --mode=production",
-    "build-dist:main": "yarn webpack --config ./webpack/config.main.js --mode=production",
-    "dist": "yarn build-dist:main && yarn build-dist:renderer"
+    "build-dist:renderer": "yarn webpack --config ./webpack/config.renderer.js --mode=production --devtool=false",
+    "build-dist:main": "yarn webpack --config ./webpack/config.main.js --mode=production --devtool=false",
+    "dist": "yarn build-dist:main && yarn build-dist:renderer",
+    "release": "yarn electron-builder build"
   },
   "devDependencies": {
     "@types/react": "^16.9.46",
