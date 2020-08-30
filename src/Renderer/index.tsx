@@ -1,9 +1,8 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import FakeContainer from './Routes/FakeContainer';
 import LoginLogupScreen from './containers/LoginLogupScreen';
@@ -11,14 +10,11 @@ import LoginLogupScreen from './containers/LoginLogupScreen';
 const Renderer: React.FC = () => (
   <Router>
     <Switch>
-      <Route path="/">
-        <LoginLogupScreen />
-      </Route>
       <Route path="/users">
         <FakeContainer title="Users" />
       </Route>
       <Route path="/">
-        <FakeContainer title="home" />
+        <LoginLogupScreen />
       </Route>
     </Switch>
   </Router>
