@@ -1,3 +1,4 @@
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { spawn } = require('child_process')
 
@@ -16,9 +17,10 @@ module.exports = [
       extensions: ['.wasm', '.mjs', '.js', '.json', '.ts', '.tsx'],
     },
     plugins: [
+      new ReactRefreshWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
-      })
+      }),
     ],
     module: {
       rules: [{
