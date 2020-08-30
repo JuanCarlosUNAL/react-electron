@@ -6,13 +6,13 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   });
 
-  console.log(is.development ? 'Development' : 'Production')
-  if (is.development) win.loadURL('http://localhost:8080/')
-  else win.loadFile('./dist/index.html');
+  console.log(is.development ? 'Development' : 'Production');
+  if (is.development) {win.loadURL('http://localhost:8080/');}
+  else {win.loadFile('./dist/index.html');}
 }
 
 app.on('ready', createWindow);

@@ -1,11 +1,11 @@
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { spawn } = require('child_process')
+const { spawn } = require('child_process');
 
 const runElectronMain = () => {
-  console.log('Electron main starting')
-  spawn('yarn', ['electron', './dist/index.main.js'])
-}
+  console.log('Electron main starting');
+  spawn('yarn', ['electron', './dist/index.main.js']);
+};
 
 module.exports = [
   {
@@ -26,8 +26,8 @@ module.exports = [
       rules: [{
         test: /\.tsx?$/,
         include: /src/,
-        use: ['ts-loader']
-      }]
+        use: ['ts-loader'],
+      }],
     },
     devServer: {
       port: 8080,
@@ -35,7 +35,7 @@ module.exports = [
       before: runElectronMain,
     },
     output: {
-      filename: 'index.renderer.js'
-    }
-  }
+      filename: 'index.renderer.js',
+    },
+  },
 ];
