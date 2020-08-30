@@ -3,7 +3,7 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 import FakeContainer from './Routes/FakeContainer';
 import LoginLogupScreen from './containers/LoginLogupScreen';
 

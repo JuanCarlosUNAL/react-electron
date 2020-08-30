@@ -7,13 +7,13 @@ export default createUseStyles({
       top: 5,
       right: 0,
       bottom: 0,
-      left: '1rem'
+      left: '1rem',
     },
     '& span': {
       fontWeight: 'bold',
-    }
+    },
   },
   myLabel: {
     fontStyle: 'italic',
-  }
-})
+  },
+});

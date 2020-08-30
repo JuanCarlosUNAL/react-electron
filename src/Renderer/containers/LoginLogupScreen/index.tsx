@@ -1,24 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import enhancer from './enhancer';
 import useStyles from './useStyles';
 
-export interface Props {}
+export interface Props {
+  submitForm: (e: React.FormEvent<HTMLFormElement>) => void;
+}
 
 enum LoginOptions {
   LOGIN = 'LOGIN',
   LOGUP = 'LOGUP'
 }
 
-const LoginLogupScreen: React.FC<Props> = () => {
+const LoginLogupScreen: React.FC<Props> = ({ submitForm }: Props) => {
   const styles = useStyles();
   const [isLogin, setIsLogin] = React.useState<boolean>(true);
   const onChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => setIsLogin(e.target.value === LoginOptions.LOGIN);
-  const submitForm = (e:  React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("send data")
-  }
 
   return (
     <div>
@@ -49,9 +46,8 @@ const LoginLogupScreen: React.FC<Props> = () => {
         )}
         <button className={styles.myButton}>Subscribe/Login</button>
       </form>
-      <Link to="users">Users</Link>
     </div>
   );
-}
- 
+};
+
 export default enhancer(LoginLogupScreen);
