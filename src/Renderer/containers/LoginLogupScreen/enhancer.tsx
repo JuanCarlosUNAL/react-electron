@@ -1,12 +1,15 @@
 import React from 'react';
-import { Props } from '.';
+import { compose } from 'recompose';
 
-const enhancer = (Component: React.ComponentType<Props>) => (): JSX.Element => {
-  const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+import styles from './styles';
+import { Props } from './types';
+
+const enhancer = (Component: React.ComponentType<Props>): React.FC => () => {
+  const submitForm: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.currentTarget.preventDefault();
+    console.log('hola Mundo');
   };
-
-  return <Component submitForm={submitForm}/>;
+  return <Component submitForm={submitForm} />;
 };
 
-export default enhancer;
+export default compose<Props, {}>(enhancer, styles);

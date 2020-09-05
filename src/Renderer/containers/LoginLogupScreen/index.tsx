@@ -1,32 +1,19 @@
 import React from 'react';
-
+import { Props } from './types';
 import enhancer from './enhancer';
-import useStyles from './useStyles';
 
-export interface Props {
-  submitForm: (e: React.FormEvent<HTMLFormElement>) => void;
-}
-
-enum LoginOptions {
-  LOGIN = 'LOGIN',
-  LOGUP = 'LOGUP'
-}
-
-const LoginLogupScreen: React.FC<Props> = ({ submitForm }: Props) => {
-  const styles = useStyles();
-  const [isLogin, setIsLogin] = React.useState<boolean>(true);
-  const onChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => setIsLogin(e.target.value === LoginOptions.LOGIN);
+const LoginLogupScreen: React.FC<Props> = ({ className, submitForm }) => {
+  const [isRegistration, setIsRegistration] = React.useState<boolean>(false);
+  const onChangeLogin: React.FormEventHandler<HTMLInputElement> = () => setIsRegistration(!isRegistration);
 
   return (
-    <div>
+    <div className={className}>
       <form onSubmit={submitForm}>
         <h2>Bienvenido</h2>
-        <div>
-          <input type="radio" id="login" name="gender" value={LoginOptions.LOGIN} onChange={onChangeLogin} checked={isLogin} />
-          <label htmlFor="login">Login</label>
-          <input type="radio" id="logup" name="gender" value={LoginOptions.LOGUP} onChange={onChangeLogin} checked={!isLogin} />
-          <label htmlFor="logup">Logup</label>
-        </div>
+        <label htmlFor="logup" className="label">
+          <input type="checkbox" id="logup" name="registration" onChange={onChangeLogin} checked={isRegistration} />
+          Registrame
+        </label>
 
         <div>
           <label htmlFor="username">Username</label>
@@ -38,13 +25,13 @@ const LoginLogupScreen: React.FC<Props> = ({ submitForm }: Props) => {
           <input type="password" />
         </div>
 
-        { !isLogin && (
+        { isRegistration && (
           <div>
             <label htmlFor="logup">Confirm password</label>
             <input type="password" />
           </div>
         )}
-        <button className={styles.myButton}>Subscribe/Login</button>
+        <button>Subscribe/Login</button>
       </form>
     </div>
   );
