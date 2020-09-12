@@ -23,11 +23,20 @@ module.exports = [
       }),
     ],
     module: {
-      rules: [{
-        test: /\.tsx?$/,
-        include: /src/,
-        use: ['ts-loader'],
-      }],
+      rules: [
+        {
+          test: /\.tsx?$/,
+          include: /src/,
+          use: ['ts-loader'],
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+          },
+        },
+      ],
     },
     devServer: {
       port: 8080,
