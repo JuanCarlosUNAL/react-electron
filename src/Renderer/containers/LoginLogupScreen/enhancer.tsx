@@ -5,9 +5,8 @@ import styles from './styles';
 import { Props } from './types';
 
 const enhancer = (Component: React.ComponentType<Props>): React.FC => () => {
-  const submitForm: React.FormEventHandler<HTMLFormElement> = (e) => {
-    e.currentTarget.preventDefault();
-    console.log('hola Mundo');
+  const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
   return <Component submitForm={submitForm} />;
 };
