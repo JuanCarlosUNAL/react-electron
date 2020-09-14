@@ -4,14 +4,15 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import FakeContainer from './FakeContainer';
+
 import LoginLogupScreen from '../containers/LoginLogupScreen';
+import PostsScreen from '../containers/PostsScreen';
 
 const Routes: React.FC = (): JSX.Element => (
   <Router>
     <Switch>
       <Route path="/users">
-        <FakeContainer title="Users" />
+        <PostsScreen />
       </Route>
       <Route path="/">
         <LoginLogupScreen />

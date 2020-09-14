@@ -1,14 +1,9 @@
 import React from 'react';
-import Icon from '@mdi/react'
-import { mdiCoolantTemperature } from '@mdi/js';
+import Icon from '@mdi/react';
+import { mdiGiftOutline } from '@mdi/js';
 
-import { Props } from './types';
+import { Props, LoginOptions } from './types';
 import enhancer from './enhancer';
-
-enum LoginOptions {
-  LOGIN = 'LOGIN',
-  LOGUP = 'LOGUP',
-}
 
 const LoginLogupScreen: React.FC<Props> = ({ className, submitForm }) => {
   const [isRegistration, setIsRegistration] = React.useState<boolean>(false);
@@ -51,8 +46,7 @@ const LoginLogupScreen: React.FC<Props> = ({ className, submitForm }) => {
             </label>
           </div>
 
-          <Icon path={mdiCoolantTemperature} className="icon" />
-
+          <Icon path={mdiGiftOutline} className="icon" />
           <div>
             <input type="text" id="username" name="username" placeholder="Username" />
           </div>
