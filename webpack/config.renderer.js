@@ -1,10 +1,22 @@
+const { spawn } = require('child_process');
+const { exit } = require('process');
+const path = require('path');
+
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { spawn } = require('child_process');
 
 const runElectronMain = () => {
+  const pathToMain = path.join('.', 'dist', 'index.main.js');
+
   console.log('Electron main starting');
-  spawn('yarn', ['electron', './dist/index.main.js']);
+  const child = spawn('yarn', ['electron', pathToMain], {shell: true});
+  child.on('error', (...args) => {
+    console.error('We have gotten an error: ', args);
+    exit(1);
+  });
+  child.on('close', () => {
+    exit(0);
+  });
 };
 
 module.exports = [
