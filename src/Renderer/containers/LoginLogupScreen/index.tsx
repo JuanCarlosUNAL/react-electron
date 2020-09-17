@@ -5,12 +5,28 @@ import { mdiGiftOutline } from '@mdi/js';
 import { Props, LoginOptions } from './types';
 import enhancer from './enhancer';
 
-const LoginLogupScreen: React.FC<Props> = ({ className, submitForm }) => {
+const LoginLogupScreen: React.FC<Props> = ({
+  className,
+  errorMessage,
+  onLogin,
+  onLogup,
+}) => {
   const [isRegistration, setIsRegistration] = React.useState<boolean>(false);
+  const [email, setEmail] = React.useState<string>('');
+  const [password, setPassword] = React.useState<string>('');
+  const [confirmPass, setConfirmPass] = React.useState<string>('');
   const buttonLabel = isRegistration ? 'Registrame' : 'Ingresar';
+
+
   const onChangeLogin: React.FormEventHandler<HTMLInputElement> = (e) => {
     const { value } = e.currentTarget;
     setIsRegistration(value === LoginOptions.LOGUP);
+  };
+
+  const submitForm: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    if (isRegistration) {onLogup(email, password, confirmPass);}
+    onLogin(email, password);
   };
 
   return (
@@ -23,52 +39,77 @@ const LoginLogupScreen: React.FC<Props> = ({ className, submitForm }) => {
                 className="radio-button"
                 type="radio"
                 id="login"
-                name="registration"
+                name="login"
                 value={LoginOptions.LOGIN}
                 onChange={onChangeLogin}
                 checked={!isRegistration}
               />
               Login
-              <div className="bottom-bar"/>
+              <div className="bottom-bar" />
             </label>
             <label htmlFor="logup" className="label">
               <input
                 className="radio-button"
                 type="radio"
                 id="logup"
-                name="registration"
+                name="logup"
                 value={LoginOptions.LOGUP}
                 onChange={onChangeLogin}
                 checked={isRegistration}
               />
               Logup
-              <div className="bottom-bar"/>
+              <div className="bottom-bar" />
             </label>
           </div>
 
           <Icon path={mdiGiftOutline} className="icon" />
+
           <div>
-            <input type="text" id="username" name="username" placeholder="Username" />
+            <input
+              value={email}
+              type="text"
+              id="email"
+              name="email"
+              placeholder="e-mail"
+              onChange={({currentTarget}) => setEmail(currentTarget.value)}
+            />
           </div>
 
           <div>
-            <input type="password" placeholder="Password" />
+            <input
+              value={password}
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              onChange={({currentTarget}) => setPassword(currentTarget.value)}
+            />
           </div>
 
           {isRegistration && (
             <div>
-              <input type="password" placeholder="Confirm password" />
+              <input
+                value={confirmPass}
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="Confirm password"
+                onChange={({currentTarget}) => setConfirmPass(currentTarget.value)}
+              />
             </div>
           )}
           <button className="submit">{buttonLabel}</button>
         </form>
-        {/* <hr/>
-        <section className="section">
-          <ul>
-            <li>Password error</li>
-            <li>Password error</li>
-          </ul>
-        </section> */}
+        {!!errorMessage && (
+          <>
+            <hr />
+            <section className="section">
+              <p className="error-message">
+                {errorMessage}
+              </p>
+            </section>
+          </>
+        )}
       </div>
     </div>
   );

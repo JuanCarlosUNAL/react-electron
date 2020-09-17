@@ -15,20 +15,24 @@ const styles = (Component: React.ComponentType<Props>) => styled(Component)`
   }
 
   .box {
+    display: flex;
+    flex-direction: column;
     height: 10rem;
     width: 15rem;
     max-width: 20rem;
     flex-grow: 1;
     margin: 0.5rem;
     padding: 1rem;
+    border: solid 1px;
 
     &:nth-child(2n+1) {
-      background-color: green; 
+      border-color: lavender;
     }
     &:nth-child(2n) {
-      background-color: lavender;
+      border-color: lightgray;
     }
   }
+  
 `;
 
 

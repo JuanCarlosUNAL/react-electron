@@ -23,6 +23,7 @@ const styles = (Component: React.ComponentType<Props>) => styled(Component)`
   }
 
   .container {
+    width: 17rem;
     background-color: #00544f;
     display: flex;
     flex-direction: column;
@@ -43,7 +44,6 @@ const styles = (Component: React.ComponentType<Props>) => styled(Component)`
   form {
     align-items: center;
     height: 18rem;
-    width: 17rem;
     &>div {
       width: 90%;
     }
@@ -89,6 +89,7 @@ const styles = (Component: React.ComponentType<Props>) => styled(Component)`
   .radio-group {
     display: flex;
     margin-bottom: 1rem;
+    font-weight: bold;
 
     .label {
       flex-grow: 1;
@@ -115,6 +116,9 @@ const styles = (Component: React.ComponentType<Props>) => styled(Component)`
     width: 4rem;
     height: 4rem;
     color: white;
+  }
+  .error-message {
+    color: indianred;
   }
 `;
 

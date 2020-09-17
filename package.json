@@ -39,6 +39,7 @@
     "@mdi/js": "^5.5.55",
     "@mdi/react": "^1.4.0",
     "electron-util": "^0.14.2",
+    "firebase": "^7.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
