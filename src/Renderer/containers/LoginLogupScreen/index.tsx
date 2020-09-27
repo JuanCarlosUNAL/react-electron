@@ -1,17 +1,20 @@
 import React from 'react';
-import Icon from '@mdi/react';
+
 import { mdiGiftOutline } from '@mdi/js';
 
 import { Props, LoginOptions } from './types';
+import * as styled from './styled';
 import enhancer from './enhancer';
 
-const LoginLogupScreen: React.FC<Props> = ({
-  className,
+import Button from '../../components/Button';
+
+export const LoginLogupScreen: React.FC<Props> = ({
   errorMessage,
   onLogin,
   onLogup,
+  initTab = LoginOptions.LOGIN,
 }) => {
-  const [isRegistration, setIsRegistration] = React.useState<boolean>(false);
+  const [isRegistration, setIsRegistration] = React.useState<boolean>(initTab === LoginOptions.LOGUP);
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   const [confirmPass, setConfirmPass] = React.useState<string>('');
@@ -25,14 +28,14 @@ const LoginLogupScreen: React.FC<Props> = ({
 
   const submitForm: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (isRegistration) {onLogup(email, password, confirmPass);}
-    onLogin(email, password);
+    if (isRegistration) { onLogup(email, password, confirmPass); }
+    else { onLogin(email, password); }
   };
 
   return (
-    <div className={`${className} full-container`}>
-      <div className="container">
-        <form className="section" onSubmit={submitForm}>
+    <styled.Container className="full-container">
+      <styled.LoginBox>
+        <styled.Form onSubmit={submitForm}>
           <div className="radio-group">
             <label htmlFor="login" className="label">
               <input
@@ -62,56 +65,46 @@ const LoginLogupScreen: React.FC<Props> = ({
             </label>
           </div>
 
-          <Icon path={mdiGiftOutline} className="icon" />
-
-          <div>
-            <input
-              value={email}
-              type="text"
-              id="email"
-              name="email"
-              placeholder="e-mail"
-              onChange={({currentTarget}) => setEmail(currentTarget.value)}
-            />
-          </div>
-
-          <div>
-            <input
-              value={password}
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-              onChange={({currentTarget}) => setPassword(currentTarget.value)}
-            />
-          </div>
+          <styled.Icon path={mdiGiftOutline} />
+          <styled.TextInput
+            value={email}
+            type="text"
+            id="email"
+            name="email"
+            placeholder="e-mail"
+            onChange={({currentTarget}) => setEmail(currentTarget.value)}
+          />
+          <styled.TextInput
+            value={password}
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            onChange={({currentTarget}) => setPassword(currentTarget.value)}
+          />
 
           {isRegistration && (
-            <div>
-              <input
-                value={confirmPass}
-                type="password"
-                id="confirm-password"
-                name="confirm-password"
-                placeholder="Confirm password"
-                onChange={({currentTarget}) => setConfirmPass(currentTarget.value)}
-              />
-            </div>
+            <styled.TextInput
+              value={confirmPass}
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Confirm password"
+              onChange={({currentTarget}) => setConfirmPass(currentTarget.value)}
+            />
           )}
-          <button className="submit">{buttonLabel}</button>
-        </form>
+          <Button>{buttonLabel}</Button>
+        </styled.Form>
         {!!errorMessage && (
           <>
-            <hr />
-            <section className="section">
-              <p className="error-message">
-                {errorMessage}
-              </p>
-            </section>
+            <styled.Divider/>
+            <styled.Section>
+              <styled.ErrorMessage>{errorMessage}</styled.ErrorMessage>
+            </styled.Section>
           </>
         )}
-      </div>
-    </div>
+      </styled.LoginBox>
+    </styled.Container>
   );
 };
 

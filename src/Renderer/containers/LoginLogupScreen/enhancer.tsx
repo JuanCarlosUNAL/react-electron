@@ -1,16 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { compose } from 'recompose';
 import { auth } from 'firebase';
 
 import { onLoginType, onLogupType, Props } from './types';
-import styles from './styles';
 
 const enhancer = (Component: React.ComponentType<Props>): React.FC => () => {
   const history = useHistory();
   const [errorMessage, setErrorMessage] = React.useState<string>('');
-
-  const vanishError = () => setErrorMessage('');
 
   const onLogup: onLogupType = async (email: string, pass: string, confirmPass: string,) => {
     if (pass !== confirmPass) {
@@ -50,8 +46,7 @@ const enhancer = (Component: React.ComponentType<Props>): React.FC => () => {
     onLogup={onLogup}
     onLogin={onLogin}
     errorMessage={errorMessage}
-    vanishError={vanishError}
   />;
 };
 
-export default compose<Props, {}>(enhancer, styles);
+export default enhancer;
