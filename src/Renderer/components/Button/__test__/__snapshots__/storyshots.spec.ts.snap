@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Common Components/Button Disabled 1`] = `
+<button
+  className="sc-bdnylx gIfZYk"
+  disabled={true}
+>
+  Button
+</button>
+`;
+
+exports[`Storyshots Common Components/Button Primary Button 1`] = `
+<button
+  className="sc-bdnylx gIfZYk"
+  disabled={false}
+>
+  Button
+</button>
+`;
