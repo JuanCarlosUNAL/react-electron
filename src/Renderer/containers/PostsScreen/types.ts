@@ -11,6 +11,6 @@ export interface Timer {
   description: string,
   id: string,
   name: string,
-  runningSince: Dayjs,
+  runningSince: Dayjs | null,
   timeElapsedMillis: number,
 }

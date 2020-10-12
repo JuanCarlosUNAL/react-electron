@@ -1,8 +1,10 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { Duration } from 'dayjs/plugin/duration';
 
-export function calcTimeElapsed(timeElapsedMillis: number, runningSince: Dayjs): Duration {
-  const diffMillis = dayjs().diff(runningSince);
+export function calcTimeElapsed(timeElapsedMillis: number, runningSince: Dayjs | null): Duration {
+  const diffMillis = runningSince
+    ? dayjs().diff(runningSince)
+    : 0;
   const totalDuration = timeElapsedMillis + diffMillis;
   return dayjs.duration(totalDuration);
 }

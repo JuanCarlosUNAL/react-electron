@@ -1,5 +1,5 @@
 import React from 'react';
-import { mdiPencil, mdiDelete, mdiStop } from '@mdi/js';
+import { mdiPencil, mdiDelete, mdiStop, mdiPlay } from '@mdi/js';
 import { Duration } from 'dayjs/plugin/duration';
 
 import { ButtonTypes } from '../../../../components/Button/types';
@@ -26,6 +26,10 @@ const TimeCard: React.FC<Props> = ({name, description, timeElapsedMillis, runnin
 
   const timeEllapsedString = helpers.formatText(timeElapsed);
 
+  const stopPlayLabel = runningSince ? 'Stop' : 'Play';
+  const stopPlayIcon = runningSince ? mdiStop : mdiPlay;
+  const stopPlayButtonType = runningSince ? ButtonTypes.warning : ButtonTypes.success;
+
   return (
     <styled.Container>
       <styled.Time>{timeEllapsedString}</styled.Time>
@@ -37,9 +41,9 @@ const TimeCard: React.FC<Props> = ({name, description, timeElapsedMillis, runnin
             <styled.Icon path={mdiPencil} />
             <span>Edit</span>
           </styled.Button>
-          <styled.Button type={ButtonTypes.warning} onClick={onPausePlay}>
-            <styled.Icon path={mdiStop} />
-            <span>Stop</span>
+          <styled.Button type={stopPlayButtonType} onClick={onPausePlay}>
+            <styled.Icon path={stopPlayIcon} />
+            <span>{stopPlayLabel}</span>
           </styled.Button>
           <styled.Button type={ButtonTypes.error} onClick={onRemove}>
             <styled.Icon path={mdiDelete} />

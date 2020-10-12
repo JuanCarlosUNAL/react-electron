@@ -26,6 +26,14 @@ Default.args = {
   name: 'Timer',
   description: 'Amet cupidatat occaecat excepteur nulla officia non culpa dolor laboris reprehenderit adipisicing.',
   timeElapsedMillis: 20000,
-  runningSince: dayjs().add(-300, 'millisecond'),
+  runningSince: dayjs().subtract(300, 'millisecond'),
+};
+
+export const Stoped = Template.bind({});
+Stoped.args = {
+  name: 'Timer',
+  description: 'Amet cupidatat occaecat excepteur nulla officia non culpa dolor laboris reprehenderit adipisicing.',
+  timeElapsedMillis: 20000,
+  runningSince: null,
 };
 
