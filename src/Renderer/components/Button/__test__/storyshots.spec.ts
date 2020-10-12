@@ -6,5 +6,5 @@ const moduleName = dirNameArray[dirNameArray.length - 2];
 const storyName = moduleName.replace(/Screen/, '');
 
 initStoryshots({
-  storyKindRegex: storyName,
+  storyKindRegex: `${storyName}$`,
 });

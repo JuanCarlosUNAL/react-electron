@@ -1,10 +1,7 @@
 import 'styled-components';
 
+import defaultTheme from './defaultTheme';
+
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    colors: {
-      greenDark: string;
-      danger: string;
-    };
-  }
+  export type DefaultTheme = typeof defaultTheme
 }

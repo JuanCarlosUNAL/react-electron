@@ -4,6 +4,11 @@ import { Story, StoryContext } from '@storybook/react/types-6-0';
 
 import GlobalStyles from "../src/Renderer/constants/GlobalStyle";
 import defaultTheme from "../src/Renderer/constants/theme/defaultTheme";
+import { HashRouter } from "react-router-dom";
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration'
+
+dayjs.extend(duration);
 
 export const parameters = {
   backgrounds: {
@@ -35,7 +40,9 @@ export const globalTypes = {
 const withThemeProvider = (StoryComp: Story, context: StoryContext) => (
   <ThemeProvider theme={defaultTheme}>
     <GlobalStyles />
-    <StoryComp {...context} />
+    <HashRouter>
+      <StoryComp {...context} />
+    </HashRouter>
   </ThemeProvider>
 )
 

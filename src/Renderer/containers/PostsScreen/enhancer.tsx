@@ -1,10 +1,14 @@
 import React from 'react';
-import { compose } from 'recompose';
+
 import { Props } from './types';
-import styles from './styles';
 
 const enhancer = (Comp: React.ComponentType<Props>): React.FC => () => {
-  return <Comp />;
+  return <Comp
+    timers={[]}
+    edit={(id: string) => () => console.log(id)}
+    pausePlay={(id: string) => () => console.log(id)}
+    remove={(id: string) => () => console.log(id)}
+  />;
 };
 
-export default compose<Props, {}>(enhancer, styles);
+export default enhancer;

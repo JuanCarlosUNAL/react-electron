@@ -2,13 +2,13 @@
 
 exports[`Storyshots Screens/LoginLogup Default 1`] = `
 <div
-  className="sc-gtssRu eziWDA full-container"
+  className="sc-dlnjPT hViHfU full-container"
 >
   <div
-    className="sc-fujyUd fYQaan"
+    className="sc-pNWxx glBFRz"
   >
     <form
-      className="sc-hKFyIo kDBVhA"
+      className="sc-eCApGN gzlbwk"
       onSubmit={[Function]}
     >
       <div
@@ -52,7 +52,7 @@ exports[`Storyshots Screens/LoginLogup Default 1`] = `
         </label>
       </div>
       <svg
-        className="sc-gKAblj kvfrDa"
+        className="sc-iCoHVE oVbeJ"
         role="presentation"
         style={Object {}}
         viewBox="0 0 24 24"
@@ -67,7 +67,8 @@ exports[`Storyshots Screens/LoginLogup Default 1`] = `
         />
       </svg>
       <input
-        className="sc-jSFkmK cBgNPW"
+        className="sc-gKAblj dWVkiR"
+        data-testid="email"
         id="email"
         name="email"
         onChange={[Function]}
@@ -76,7 +77,8 @@ exports[`Storyshots Screens/LoginLogup Default 1`] = `
         value=""
       />
       <input
-        className="sc-jSFkmK cBgNPW"
+        className="sc-gKAblj dWVkiR"
+        data-testid="password"
         id="password"
         name="password"
         onChange={[Function]}
@@ -85,7 +87,7 @@ exports[`Storyshots Screens/LoginLogup Default 1`] = `
         value=""
       />
       <button
-        className="sc-bdnylx gIfZYk"
+        className="sc-bdnylx gBSZYa default sc-jrsJCI jAlETE"
       >
         Ingresar
       </button>
@@ -96,13 +98,13 @@ exports[`Storyshots Screens/LoginLogup Default 1`] = `
 
 exports[`Storyshots Screens/LoginLogup Logup State 1`] = `
 <div
-  className="sc-gtssRu eziWDA full-container"
+  className="sc-dlnjPT hViHfU full-container"
 >
   <div
-    className="sc-fujyUd fYQaan"
+    className="sc-pNWxx glBFRz"
   >
     <form
-      className="sc-hKFyIo kDBVhA"
+      className="sc-eCApGN gzlbwk"
       onSubmit={[Function]}
     >
       <div
@@ -146,7 +148,7 @@ exports[`Storyshots Screens/LoginLogup Logup State 1`] = `
         </label>
       </div>
       <svg
-        className="sc-gKAblj kvfrDa"
+        className="sc-iCoHVE oVbeJ"
         role="presentation"
         style={Object {}}
         viewBox="0 0 24 24"
@@ -161,7 +163,8 @@ exports[`Storyshots Screens/LoginLogup Logup State 1`] = `
         />
       </svg>
       <input
-        className="sc-jSFkmK cBgNPW"
+        className="sc-gKAblj dWVkiR"
+        data-testid="email"
         id="email"
         name="email"
         onChange={[Function]}
@@ -170,7 +173,8 @@ exports[`Storyshots Screens/LoginLogup Logup State 1`] = `
         value=""
       />
       <input
-        className="sc-jSFkmK cBgNPW"
+        className="sc-gKAblj dWVkiR"
+        data-testid="password"
         id="password"
         name="password"
         onChange={[Function]}
@@ -179,7 +183,8 @@ exports[`Storyshots Screens/LoginLogup Logup State 1`] = `
         value=""
       />
       <input
-        className="sc-jSFkmK cBgNPW"
+        className="sc-gKAblj dWVkiR"
+        data-testid="confirm"
         id="confirm-password"
         name="confirm-password"
         onChange={[Function]}
@@ -188,7 +193,7 @@ exports[`Storyshots Screens/LoginLogup Logup State 1`] = `
         value=""
       />
       <button
-        className="sc-bdnylx gIfZYk"
+        className="sc-bdnylx gBSZYa default sc-jrsJCI jAlETE"
       >
         Registrame
       </button>
@@ -199,13 +204,13 @@ exports[`Storyshots Screens/LoginLogup Logup State 1`] = `
 
 exports[`Storyshots Screens/LoginLogup With Error 1`] = `
 <div
-  className="sc-gtssRu eziWDA full-container"
+  className="sc-dlnjPT hViHfU full-container"
 >
   <div
-    className="sc-fujyUd fYQaan"
+    className="sc-pNWxx glBFRz"
   >
     <form
-      className="sc-hKFyIo kDBVhA"
+      className="sc-eCApGN gzlbwk"
       onSubmit={[Function]}
     >
       <div
@@ -249,7 +254,7 @@ exports[`Storyshots Screens/LoginLogup With Error 1`] = `
         </label>
       </div>
       <svg
-        className="sc-gKAblj kvfrDa"
+        className="sc-iCoHVE oVbeJ"
         role="presentation"
         style={Object {}}
         viewBox="0 0 24 24"
@@ -264,7 +269,8 @@ exports[`Storyshots Screens/LoginLogup With Error 1`] = `
         />
       </svg>
       <input
-        className="sc-jSFkmK cBgNPW"
+        className="sc-gKAblj dWVkiR"
+        data-testid="email"
         id="email"
         name="email"
         onChange={[Function]}
@@ -273,7 +279,8 @@ exports[`Storyshots Screens/LoginLogup With Error 1`] = `
         value=""
       />
       <input
-        className="sc-jSFkmK cBgNPW"
+        className="sc-gKAblj dWVkiR"
+        data-testid="password"
         id="password"
         name="password"
         onChange={[Function]}
@@ -282,19 +289,19 @@ exports[`Storyshots Screens/LoginLogup With Error 1`] = `
         value=""
       />
       <button
-        className="sc-bdnylx gIfZYk"
+        className="sc-bdnylx gBSZYa default sc-jrsJCI jAlETE"
       >
         Ingresar
       </button>
     </form>
     <hr
-      className="sc-iCoHVE iTxUqW"
+      className="sc-fujyUd kzaTNC"
     />
     <section
-      className="sc-dlnjPT huQcYD"
+      className="sc-hKFyIo fYLVwp"
     >
       <p
-        className="sc-eCApGN Vycwq"
+        className="sc-jSFkmK dDvJBl"
       >
         this is an short error message
       </p>

@@ -4,7 +4,7 @@ import * as Roboto from '../assets/fonts/Roboto';
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: roboto;
-    src: ur(${Roboto.regular});
+    src: url(${Roboto.regular});
   }
 
   html div, body, p, h1, h2, h3, h4, h5, h6 {

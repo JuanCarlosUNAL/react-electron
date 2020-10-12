@@ -1,9 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Common Components/Button Danger Button 1`] = `
+<button
+  className="sc-bdnylx gBSZYa error "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
 exports[`Storyshots Common Components/Button Disabled 1`] = `
 <button
-  className="sc-bdnylx gIfZYk"
+  className="sc-bdnylx gBSZYa default "
   disabled={true}
+>
+  Button
+</button>
+`;
+
+exports[`Storyshots Common Components/Button Info Button 1`] = `
+<button
+  className="sc-bdnylx gBSZYa info "
+  disabled={false}
 >
   Button
 </button>
@@ -11,7 +29,25 @@ exports[`Storyshots Common Components/Button Disabled 1`] = `
 
 exports[`Storyshots Common Components/Button Primary Button 1`] = `
 <button
-  className="sc-bdnylx gIfZYk"
+  className="sc-bdnylx gBSZYa default "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
+exports[`Storyshots Common Components/Button Success Button 1`] = `
+<button
+  className="sc-bdnylx gBSZYa success "
+  disabled={false}
+>
+  Button
+</button>
+`;
+
+exports[`Storyshots Common Components/Button Warning Button 1`] = `
+<button
+  className="sc-bdnylx gBSZYa warning "
   disabled={false}
 >
   Button

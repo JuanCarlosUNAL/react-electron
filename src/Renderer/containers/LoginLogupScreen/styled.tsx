@@ -1,6 +1,8 @@
 import MaterialIcon from '@mdi/react';
 import styled, {css} from 'styled-components';
 
+import { default as OButton } from '../../components/Button';
+
 import bgImage from '../../assets/images/login-bg-3.jpg';
 
 export const Container = styled.div`
@@ -77,13 +79,13 @@ export const TextInput = styled.input`
   background-color: transparent;
   text-align: center;
   border: none;
-  border-bottom: solid 1px #8fc2be;
+  border-bottom: solid 1px ${({theme}) => theme.colors.lightPrimary};
   margin-top: 1rem;
   font-size: 1rem;
   color: white;
   width: 90%;
   &::placeholder {
-    color: #8fc2be;
+    color: ${({theme}) => theme.colors.lightPrimary};
   }
   &:focus {
     outline: none;
@@ -100,13 +102,17 @@ export const Divider = styled.hr`
   width: 100%; 
   margin: 0;
   border: none;
-  border-bottom: solid 1px #8fc2be;
+  border-bottom: solid 1px ${({theme}) => theme.colors.lightPrimary};;
 `;
 
 export const LoginBox = styled.div`
   width: 17rem;
-  background-color: #00544f;
+  background-color: ${({theme}) => theme.colors.primary};
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
+`;
+
+export const Button = styled(OButton)`
+  margin-top: auto;
 `;

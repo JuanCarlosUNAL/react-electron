@@ -1,12 +1,9 @@
 import React from 'react';
-
 import { mdiGiftOutline } from '@mdi/js';
 
-import { Props, LoginOptions } from './types';
+import { Props, LoginOptions, TestIDs } from './types';
 import * as styled from './styled';
 import enhancer from './enhancer';
-
-import Button from '../../components/Button';
 
 export const LoginLogupScreen: React.FC<Props> = ({
   errorMessage,
@@ -67,37 +64,40 @@ export const LoginLogupScreen: React.FC<Props> = ({
 
           <styled.Icon path={mdiGiftOutline} />
           <styled.TextInput
-            value={email}
-            type="text"
+            data-testid={TestIDs.email}
             id="email"
             name="email"
+            onChange={({ currentTarget }) => setEmail(currentTarget.value)}
             placeholder="e-mail"
-            onChange={({currentTarget}) => setEmail(currentTarget.value)}
+            type="text"
+            value={email}
           />
           <styled.TextInput
+            data-testid={TestIDs.password}
             value={password}
             type="password"
             id="password"
             name="password"
             placeholder="Password"
-            onChange={({currentTarget}) => setPassword(currentTarget.value)}
+            onChange={({ currentTarget }) => setPassword(currentTarget.value)}
           />
 
           {isRegistration && (
             <styled.TextInput
+              data-testid={TestIDs.confirm}
               value={confirmPass}
               type="password"
               id="confirm-password"
               name="confirm-password"
               placeholder="Confirm password"
-              onChange={({currentTarget}) => setConfirmPass(currentTarget.value)}
+              onChange={({ currentTarget }) => setConfirmPass(currentTarget.value)}
             />
           )}
-          <Button>{buttonLabel}</Button>
+          <styled.Button>{buttonLabel}</styled.Button>
         </styled.Form>
         {!!errorMessage && (
           <>
-            <styled.Divider/>
+            <styled.Divider />
             <styled.Section>
               <styled.ErrorMessage>{errorMessage}</styled.ErrorMessage>
             </styled.Section>
