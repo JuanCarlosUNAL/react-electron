@@ -4,12 +4,37 @@ import MaterialIcon from '@mdi/react';
 import {default as OButton} from '../../../../components/Button';
 
 export const Container = styled.div`
+  position: relative;
+  padding-top: 1rem;
+`;
+
+export const DragOverContainer = styled.div`
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+
+  &.show {
+    opacity: 1;
+    z-index: 10;
+  }
+`;
+
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  margin: 0.5rem;
   padding: 1rem;
   backdrop-filter: invert(20%);
+  transition: 0.25s;
+
+  &.picked {
+    transform: rotate(-5deg);
+  }
 `;
 
 export const Time = styled.h1`
@@ -36,7 +61,7 @@ export const Button = styled(OButton)`
     width: 0rem;
     transform: scaleX(0);
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.3s;
   }
   &:hover span {
     width: 3rem;

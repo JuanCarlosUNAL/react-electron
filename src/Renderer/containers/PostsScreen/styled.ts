@@ -9,5 +9,6 @@ export const Container = styled.div`
 export const GridContainer = styled.section`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); ;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-gap: 1rem;
 `;
