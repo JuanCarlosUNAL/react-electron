@@ -3,9 +3,8 @@ import { mdiGiftOutline } from '@mdi/js';
 
 import { Props, LoginOptions, TestIDs } from './types';
 import * as styled from './styled';
-import enhancer from './enhancer';
 
-export const LoginLogupScreen: React.FC<Props> = ({
+const LoginLogupScreen: React.FC<Props> = ({
   errorMessage,
   onLogin,
   onLogup,
@@ -108,4 +107,4 @@ export const LoginLogupScreen: React.FC<Props> = ({
   );
 };
 
-export default enhancer(LoginLogupScreen);
+export default LoginLogupScreen;

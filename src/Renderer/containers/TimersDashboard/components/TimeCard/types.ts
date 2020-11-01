@@ -1,6 +1,6 @@
-import { Timer } from '../../types';
+import { ITimer } from '../../types';
 
-export interface Props extends Timer{
+export interface Props extends ITimer{
   onPausePlay: () => void,
   onRemove: () => void,
   onEdit: () => void,

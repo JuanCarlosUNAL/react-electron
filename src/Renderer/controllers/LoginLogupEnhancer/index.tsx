@@ -2,13 +2,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { auth } from 'firebase';
 
-import { onLoginType, onLogupType, Props } from './types';
+import LoginLogupScreen from '../../containers/LoginLogupScreen';
 
-const enhancer = (Component: React.ComponentType<Props>): React.FC => () => {
+const LoginLogupEnhancer: React.FC = () => {
   const history = useHistory();
   const [errorMessage, setErrorMessage] = React.useState<string>('');
 
-  const onLogup: onLogupType = async (email: string, pass: string, confirmPass: string,) => {
+  const onLogup = async (email: string, pass: string, confirmPass: string,) => {
     if (pass !== confirmPass) {
       setErrorMessage('The password does not match.');
       return;
@@ -22,7 +22,7 @@ const enhancer = (Component: React.ComponentType<Props>): React.FC => () => {
     }
   };
 
-  const onLogin: onLoginType = async (email: string, pass: string) => {
+  const onLogin = async (email: string, pass: string) => {
     if (!email || !pass) {
       setErrorMessage('Password and email must be filled.');
       return;
@@ -42,11 +42,11 @@ const enhancer = (Component: React.ComponentType<Props>): React.FC => () => {
     }
   };
 
-  return <Component
+  return <LoginLogupScreen
     onLogup={onLogup}
     onLogin={onLogin}
     errorMessage={errorMessage}
   />;
 };
 
-export default enhancer;
+export default LoginLogupEnhancer;

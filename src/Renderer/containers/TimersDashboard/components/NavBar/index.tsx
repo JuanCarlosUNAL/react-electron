@@ -7,13 +7,13 @@ import { ButtonTypes } from '../../../../components/Button/types';
 import * as styled from './styled';
 import { Props } from './types';
 
-const NavBar: React.FC<Props> = () => (
+const NavBar: React.FC<Props> = ({onNewCard, logout}) => (
   <styled.Container>
-    <Button type={ButtonTypes.error}>
+    <Button onClick={logout} type={ButtonTypes.error}>
       <styled.Icon path={mdiLogout}/>
       Logout
     </Button>
-    <Button>
+    <Button onClick={onNewCard}>
       New Card
     </Button>
   </styled.Container>

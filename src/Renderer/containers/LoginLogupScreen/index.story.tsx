@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 
-import {LoginLogupScreen as LoginLogup} from '.';
+import {default as LoginLogup} from '.';
 import { LoginOptions, Props } from './types';
 
 // This default export determines where you story goes in the story list

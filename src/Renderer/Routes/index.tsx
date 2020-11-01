@@ -5,17 +5,23 @@ import {
   Route,
 } from 'react-router-dom';
 
-import LoginLogupScreen from '../containers/LoginLogupScreen';
-import PostsScreen from '../containers/PostsScreen';
+import LoginLogup from '../controllers/LoginLogupEnhancer';
+import NewTimer from '../controllers/NewTimerEnhancer';
+import TimersDashboards from '../controllers/TimersDashboard';
 
-const Routes: React.FC = (): JSX.Element => (
+const Routes: React.FC = () => (
   <Router>
     <Switch>
       <Route path="/users">
-        <PostsScreen />
+        <TimersDashboards />
+        <Switch>
+          <Route path="/users/newCard">
+            <NewTimer />
+          </Route>
+        </Switch>
       </Route>
       <Route path="/">
-        <LoginLogupScreen />
+        <LoginLogup />
       </Route>
     </Switch>
   </Router>

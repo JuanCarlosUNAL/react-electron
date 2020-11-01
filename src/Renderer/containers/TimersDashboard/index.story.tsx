@@ -1,14 +1,14 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 
-import { PostsScreen } from '.';
+import TimersDashboard from '.';
 import { Props } from './types';
 import dayjs from 'dayjs';
 
 // This default export determines where you story goes in the story list
 export default {
   title: 'Screens / Time Cards',
-  component: PostsScreen,
+  component: TimersDashboard,
   argTypes: {
     edit: { action: 'edit' },
     pausePlay: { action: 'pausePlay' },
@@ -18,7 +18,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args) => (
-  <PostsScreen {...args}/>
+  <TimersDashboard {...args}/>
 );
 
 export const Default = Template.bind({});

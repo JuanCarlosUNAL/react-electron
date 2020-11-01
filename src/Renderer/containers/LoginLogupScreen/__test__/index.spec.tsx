@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { render, screen, act, fireEvent } from '../../../test-helpers';
 
-import { LoginLogupScreen as LoginLogup } from '..';
+import LoginLogup from '..';
 import { LoginOptions, TestIDs } from '../types';
 
 describe('LoginLogup Screen', () => {

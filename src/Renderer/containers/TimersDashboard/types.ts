@@ -1,13 +1,15 @@
 import { Dayjs } from 'dayjs';
 
 export interface Props {
-  timers: Array<Timer>,
+  timers: Array<ITimer>,
   edit: (id: string) => void,
   pausePlay: (id: string) => void,
   remove: (id: string) => void,
+  newCard: () => void,
+  logout: () => void,
 }
 
-export interface Timer {
+export interface ITimer {
   description: string,
   id: string,
   name: string,

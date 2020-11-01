@@ -7,10 +7,13 @@ const GlobalStyle = createGlobalStyle`
     src: url(${Roboto.regular});
   }
 
-  html div, body, p, h1, h2, h3, h4, h5, h6 {
+  html, div, body, p, h1, h2, h3, h4, h5, h6 {
     padding: 0;
     margin: 0;
     user-select: none;
+    font-family: roboto;
+  }
+  input {
     font-family: roboto;
   }
   .full-container {
