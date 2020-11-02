@@ -5,7 +5,6 @@ import {default as OButton} from '../../../../components/Button';
 
 export const Container = styled.div`
   position: relative;
-  padding-top: 1rem;
 `;
 
 export const DragOverContainer = styled.div`
@@ -18,6 +17,7 @@ export const DragOverContainer = styled.div`
   width: 100%;
   height: 100%;
   transition: 0.5s;
+  box-sizing: border-box;
 
   &.show {
     opacity: 1;
@@ -26,11 +26,13 @@ export const DragOverContainer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   backdrop-filter: invert(20%);
   transition: 0.25s;
+  height: 100%;
 
   &.picked {
     transform: rotate(-5deg);
@@ -47,6 +49,7 @@ export const Description = styled.p`
 export const JustifyRight = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-top: auto;
 `;
 
 export const Icon = styled(MaterialIcon)`

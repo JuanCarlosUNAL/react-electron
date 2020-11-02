@@ -8,7 +8,7 @@ import { Props } from './types';
 
 export const FormTimerModal: React.FC<Props> = ({
   onCloseModal,
-  onCreateNewTimer,
+  onSubmit: onCreateNewTimer,
   timer,
 }) => {
   return (

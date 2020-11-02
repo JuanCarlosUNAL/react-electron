@@ -8,6 +8,7 @@ import {
 import LoginLogup from '../controllers/LoginLogupEnhancer';
 import NewTimer from '../controllers/NewTimerEnhancer';
 import TimersDashboards from '../controllers/TimersDashboard';
+import EditTimerEnhancer from '../controllers/EditTimer';
 
 const Routes: React.FC = () => (
   <Router>
@@ -17,6 +18,9 @@ const Routes: React.FC = () => (
         <Switch>
           <Route path="/users/newCard">
             <NewTimer />
+          </Route>
+          <Route path="/users/editCard/:timerId">
+            <EditTimerEnhancer />
           </Route>
         </Switch>
       </Route>

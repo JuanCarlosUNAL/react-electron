@@ -23,7 +23,7 @@ const NewTimerEnhancer: React.FC = () => {
 
   return <FormTimerModal
     onCloseModal={closeModal}
-    onCreateNewTimer={createTimer}
+    onSubmit={createTimer}
     timer={{description: '', name: ''}}
   />;
 };

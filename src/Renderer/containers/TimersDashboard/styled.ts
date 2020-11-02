@@ -11,4 +11,5 @@ export const GridContainer = styled.section`
   width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: 1rem;
+  align-items: stretch;
 `;

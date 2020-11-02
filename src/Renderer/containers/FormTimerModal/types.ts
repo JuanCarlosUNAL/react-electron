@@ -4,6 +4,6 @@ export type FormFieldsType = Pick<ITimer, 'description' | 'name'>
 
 export interface Props {
   onCloseModal: () => void;
-  onCreateNewTimer: (name: string, description: string) => void;
+  onSubmit: (name: string, description: string) => void;
   timer: FormFieldsType;
 }

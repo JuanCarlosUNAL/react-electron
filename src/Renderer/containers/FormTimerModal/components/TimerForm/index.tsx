@@ -11,9 +11,14 @@ const NewTimerForm: React.FC<Props> = ({sendForm, timerFields}) => {
   const [name, setName] = React.useState<string>(timerFields.name);
   const [description, setDescription] = React.useState<string>(timerFields.description);
 
+  React.useEffect(() => {
+    setName(timerFields.name);
+    setDescription(timerFields.description);
+  }, [timerFields]);
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    sendForm(description, name);
+    sendForm(name, description);
   };
 
   return (
@@ -33,7 +38,7 @@ const NewTimerForm: React.FC<Props> = ({sendForm, timerFields}) => {
         value={description}
         onChange={({currentTarget}) => setDescription(currentTarget.value)}
       />
-      <Button>Create</Button>
+      <Button>Submit</Button>
     </styled.Form>
   );
 };

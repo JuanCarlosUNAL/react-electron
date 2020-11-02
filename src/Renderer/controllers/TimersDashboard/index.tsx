@@ -52,9 +52,13 @@ const TimersDashboardEnhancer: React.FC = () => {
     history.push('/users/newCard');
   };
 
+  const editCard = (timerId: string) => {
+    history.push(`/users/editCard/${timerId}`);
+  };
+
   return <TimersDashboard
     timers={list}
-    edit={(id: string) => console.log(id)}
+    edit={editCard}
     pausePlay={pausePlay}
     remove={removeTimer}
     logout={() => console.log('logout')}
