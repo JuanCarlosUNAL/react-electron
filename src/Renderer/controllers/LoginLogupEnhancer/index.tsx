@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { auth } from 'firebase';
 
 import LoginLogupScreen from '../../containers/LoginLogupScreen';
+import { useFirebase } from '../../Providers/FirebaseProvider';
 
 const LoginLogupEnhancer: React.FC = () => {
+  const { auth } = useFirebase();
   const history = useHistory();
   const [errorMessage, setErrorMessage] = React.useState<string>('');
 
@@ -15,7 +16,7 @@ const LoginLogupEnhancer: React.FC = () => {
     }
 
     try {
-      await auth().createUserWithEmailAndPassword(email, pass);
+      await auth?.createUserWithEmailAndPassword(email, pass);
       history.push('/users');
     } catch (error) {
       setErrorMessage(error.message);
@@ -33,12 +34,12 @@ const LoginLogupEnhancer: React.FC = () => {
     }
 
     try {
-      await auth().signInWithEmailAndPassword(email, pass);
+      await auth?.signInWithEmailAndPassword(email, pass);
       history.push('/users');
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
-      await auth().signOut();
+      await auth?.signOut();
     }
   };
 

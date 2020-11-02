@@ -1,18 +1,18 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import { firestore } from 'firebase/app';
 import { useHistory } from 'react-router-dom';
 
 import TimersDashboard from '../../containers/TimersDashboard';
 import { ITimer } from '../../containers/TimersDashboard/types';
+import { useFirebase } from '../../Providers/FirebaseProvider';
 
 const TimersDashboardEnhancer: React.FC = () => {
   const [list, setList] = React.useState<ITimer[]>([]);
-  const db = React.useMemo(firestore, []);
+  const {db, auth } = useFirebase();
   const history = useHistory();
 
   React.useEffect(() => {
-    db.collection('timers').onSnapshot(({docs}) => {
+    db?.collection('timers').onSnapshot(({docs}) => {
       const data = docs
         .map<any>((item) => ({id: item.id, ...item.data()}))
         .map((timer) => ({ ...timer,
@@ -23,7 +23,9 @@ const TimersDashboardEnhancer: React.FC = () => {
   }, [db]);
 
   const pausePlay = React.useCallback(async (timerId: string) => {
-    const document = await db.collection('timers').doc(timerId);
+    const document = await db?.collection('timers').doc(timerId);
+    if (!document) { throw new Error('timer document not found');}
+
     const timer = list.find(({id}) => id === timerId);
     if (!timer) {throw new Error('Unexpected: timer not found');}
 
@@ -44,7 +46,8 @@ const TimersDashboardEnhancer: React.FC = () => {
   }, [list,db]);
 
   const removeTimer = async (timerId: string) => {
-    const document = await db.collection('timers').doc(timerId);
+    const document = await db?.collection('timers').doc(timerId);
+    if (!document) {throw new Error('timer document not found');}
     document.delete();
   };
 
@@ -56,12 +59,18 @@ const TimersDashboardEnhancer: React.FC = () => {
     history.push(`/users/editCard/${timerId}`);
   };
 
+  const logout = () => {
+    if (!auth) {return;}
+    auth.signOut();
+    history.goBack();
+  };
+
   return <TimersDashboard
     timers={list}
     edit={editCard}
     pausePlay={pausePlay}
     remove={removeTimer}
-    logout={() => console.log('logout')}
+    logout={logout}
     newCard={newCard}
   />;
 };

@@ -9,6 +9,7 @@ import duration from 'dayjs/plugin/duration';
 import firebaseCredentials from './constants/firebaseCredentials.json';
 import defaultTheme from './constants/theme/defaultTheme';
 import GlobalStyle from './constants/GlobalStyle';
+import FirebaseProvider from './Providers/FirebaseProvider';
 
 dayjs.extend(duration);
 
@@ -16,8 +17,10 @@ const Renderer: React.FC = () => {
   initializeFirebase(firebaseCredentials);
   return (
     <ThemeProvider theme={defaultTheme}>
-      <GlobalStyle />
-      <Routes />
+      <FirebaseProvider>
+        <GlobalStyle />
+        <Routes />
+      </FirebaseProvider>
     </ThemeProvider>
   );
 };
